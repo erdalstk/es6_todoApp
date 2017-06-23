@@ -1,0 +1,634 @@
+
+/* INDEX
+ * 01 - CSS RESET
+ * 02 - FONT FACE
+ * 03 - BASE STYLES
+ * 04 - MAIN STRUCTURE
+ * 05 - RESPONSIVE STRUCTURE
+ * 06 - FONT-TEXT STYLES
+ * 07 - FORM ELEMENTS
+ * 08 - UI ELEMENTS
+ * 09 - PAGE SPECIFIC STYLES
+*/
+
+
+/**
+* 01 - CSS RESET
+* Eric Meyer's Reset CSS v2.0 - http://cssreset.com.
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers
+==============================================*/
+article,aside,details,figcaption,figure,footer,header,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+
+/**
+* 02 - FONT FACE
+* Font face
+*/
+
+@font-face {
+    font-family: 'Turkcell Satura';
+    src: url("../fonts/turkcell_satura_regular-webfont.eot");
+    src: url("../fonts/turkcell_satura_regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/turkcell_satura_regular-webfont.woff") format("woff"), url("../fonts/turkcell_satura_regular-webfont.ttf") format("truetype"), url("../fonts/turkcell_satura_regular-webfont.svg#turkcell_saturaregular") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Turkcell Satura';
+    src: url("../fonts/turkcell_satura_medium-webfont.eot");
+    src: url("../fonts/turkcell_satura_medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/turkcell_satura_medium-webfont.woff") format("woff"), url("../fonts/turkcell_satura_medium-webfont.ttf") format("truetype"), url("../fonts/turkcell_satura_medium-webfont.svg#turkcell_saturamedium") format("svg");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Turkcell Satura';
+    src: url("../fonts/turkcell_satura_bold-webfont.eot");
+    src: url("../fonts/turkcell_satura_bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/turkcell_satura_bold-webfont.woff") format("woff"), url("../fonts/turkcell_satura_bold-webfont.ttf") format("truetype"), url("../fonts/turkcell_satura_bold-webfont.svg#turkcell_saturamedium") format("svg");
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Regular';
+    src: url("../fonts/helvetica-regular-webfont.eot");
+    src: url("../fonts/helvetica-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-regular-webfont.woff") format("woff"), url("../fonts/helvetica-regular-webfont.ttf") format("truetype"), url("../fonts/helvetica-regular-webfont.svg#helveticaregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*!
+ *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */@font-face{font-family:'FontAwesome';src:url(../fonts/fontawesome-webfont.eot?v=4.6.3);src:url(../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3) format("embedded-opentype"),url(../fonts/fontawesome-webfont.woff2?v=4.6.3) format("woff2"),url(../fonts/fontawesome-webfont.woff?v=4.6.3) format("woff"),url(../fonts/fontawesome-webfont.ttf?v=4.6.3) format("truetype"),url(../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular) format("svg");font-weight:400;font-style:normal}
+
+/**
+* 03 - BASE STYLES
+* Styles that effects entire doc
+*/
+html{
+    background:#FFF;
+    font-family:"Helvetica Regular",sans-serif;
+    font-weight:300;
+    height:100%}
+body{
+    background:#FFF;
+    height:100%;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden}
+a {text-decoration: none;}
+input:focus,select:focus,textarea:focus,button:focus{outline:none}
+input,textarea{-webkit-appearance:none;border-radius:0;width: 100%}
+::selection{background-color:#008BC0;color:#FFF}
+
+/**
+* 04 - MAIN STRUCTURE & STYLE
+* Responsive Rules and setup
+*/
+
+.wrap{
+    height:100%;
+    margin:0 auto;
+    min-height:100%;}
+.page--wrap{margin:0 auto;max-width:1080px;width:90%}
+.hide{display:none}
+aside.left {float: left !important;}
+
+/* clearfix
+============*/
+.clearfix:after{content:"";display:table;clear:both}
+.page--wrap:after,
+.section:after{content:"";display:table;clear:both}
+
+.clearfix .clearfix [class*='col-div-']{float:left;padding:0}
+.clearfix .clearfix [class*='col-div-']:last-of-type{padding-right:0}
+.clearfix .clearfix .pad-left{padding-left:20px}
+.clear-both {clear: both;}
+
+/* Align Elements
+=================*/
+.left {float: left;}
+.right {float: right;}
+.left-align-list li {float: left;}
+
+/* Label Margin
+=================*/
+.label-m-b {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/**
+* 05 - RESPONSIVE STRUCTURE
+* Custom Responsive Rules and Setup
+*/
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+[class*='col-div-'] {
+    float: left;
+    padding: 10px;
+}
+[class*='col-div-']:last-of-type {
+    padding-right: 10px;
+    float: right;
+}
+/* Main grid widths
+===================*/
+.col-div-1{width:8.33%}
+.col-div-2{width:16.66%;}
+.col-div-3{width:24.99%}
+.col-div-4{width:33.32%}
+.col-div-5{width:41.65%}
+.col-div-6{width:49.98%}
+.col-div-7{width:56%}
+.col-div-8{width:66.64%}
+.col-div-9{width:74.97%}
+.col-div-10{width:83.3%}
+.col-div-11{width:91.63%}
+.col-div-12{width:100%}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .logo {
+        background-position-y: -27px !important;
+        background-size: cover !important;
+    }
+}
+
+
+/* Max Width 480 px
+===============================*/
+@media (max-width: 320px) {
+    .col-div-1{width:100%}
+    .col-div-2{width:100%}
+    .col-div-3{width:100%}
+    .col-div-4{width:100%}
+    .col-div-5{width:100%}
+    .col-div-6{width:100%}
+    .col-div-7{width:100%}
+    .col-div-8{width:100%}
+    .col-div-9{width:100%}
+    .col-div-10{width:100%}
+    .col-div-11{width:100%}
+    .col-div-12{width:100%}
+    #header h1 {
+        font-size: 1rem;
+    }
+}
+/* Between 312px - 425px
+===============================*/
+@media all and  (min-width: 321px) and (max-width: 426px) {
+    .col-div-1{width:100%}
+    .col-div-2{width:100%}
+    .col-div-3{width:100%}
+    .col-div-4{width:100%}
+    .col-div-5{width:100%}
+    .col-div-6{width:100%}
+    .col-div-7{width:100%}
+    .col-div-8{width:100%}
+    .col-div-9{width:100%}
+    .col-div-10{width:100%}
+    .col-div-11{width:100%}
+    .col-div-12{width:100%}
+    #header h1 {
+        font-size: 1rem;
+    }
+}
+/* Between 426px - 668px
+===============================*/
+@media (min-width: 426px) and (max-width: 668px) {
+    .col-div-1{width:100%}
+    .col-div-2{width:100%}
+    .col-div-3{width:100%}
+    .col-div-4{width:100%}
+    .col-div-5{width:100%}
+    .col-div-6{width:100%}
+    .col-div-7{width:100%}
+    .col-div-8{width:100%}
+    .col-div-9{width:100%}
+    .col-div-10{width:100%}
+    .col-div-11{width:100%}
+    .col-div-12{width:100%}
+
+    h1{font-size:1.35rem !important;}
+    h2{font-size:1.05rem !important;}
+    h3{font-size:1.0375rem !important;}
+    h4{font-size:.975rem !important;}
+    h5{font-size:.9125rem !important;}
+    h6{font-size:.85rem !important;}
+}
+/* Between 669px - 768px
+===============================*/
+@media (min-width: 669px) and (max-width: 768px) {
+    .col-div-1{width:8.33%}
+    .col-div-2{width:16.66%;}
+    .col-div-3{width:24.99%}
+    .col-div-4{width:33.32%}
+    .col-div-5{width:41.65%}
+    .col-div-6{width:49.98%}
+    .col-div-7{width:56%}
+    .col-div-8{width:66.64%}
+    .col-div-9{width:74.97%}
+    .col-div-10{width:83.3%}
+    .col-div-11{width:91.63%}
+    .col-div-12{width:100%}
+
+    h1{font-size:1.40rem !important;}
+    h2{font-size:1.15rem !important;}
+    h3{font-size:1.0875rem !important;}
+    h4{font-size:1.025rem !important;}
+    h5{font-size:.9625rem !important;}
+    h6{font-size:.9rem !important;}
+}
+@media (max-width: 640px) {
+    .sidebar-nav a {
+        padding-left: 0.5rem !important;
+    }
+    .logo,
+    #header h1 {
+        text-align: center;
+        margin: 0 auto;
+        float: none !important;
+    }
+    .logo {
+        background-position-x: 63% !important;
+    }
+}
+.p-h-20 {padding-left: 20px; padding-right: 20px;}
+.p-v-20 {padding-top: 20px; padding-bottom: 20px;}
+/**
+* 06 - FONT-TEXT STYLES
+* Header, paragraph and general text styles
+*/
+
+p{font-size:inherit;line-height:1.6;margin-bottom:1rem;text-rendering:optimizeLegibility}
+strong,b{font-weight:700;line-height:inherit}
+small{font-size:80%;line-height:inherit}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:"Turkcell Satura",sans-serif;
+    font-weight:400;
+    font-style:normal;
+    color: #081332;
+    text-rendering:optimizeLegibility;
+    margin-top:0;
+    margin-bottom:.5rem;
+    line-height:1.4}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small{
+    color:#cacaca;
+    line-height:0}
+h1{font-size:1.5rem}
+h2{font-size:1.25rem}
+h3{font-size:1.1875rem}
+h4{font-size:1.125rem}
+h5{font-size:1.0625rem}
+h6{font-size:1rem}
+.bold {font-weight: bold}
+
+/**
+* 07 - FORM ELEMENTS
+* Colors
+*/
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto !important;
+    display: none;
+}
+input[type="text"],
+textarea {
+    background: #f5f5f5;
+    color: #444;
+    display: block;
+    margin: 0;
+    padding: 6px;
+    border: 3px solid #ebebeb;
+    font-size: 1.10em;
+    font-weight: 300;
+}
+input:focus,
+textarea:focus {
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    background-color: #deecf1;
+    border-color: #008bc0;
+}
+label span {
+    display: block;
+    font-size: 0.8em;
+    font-family:"Turkcell Satura",sans-serif;
+    font-weight: 900;
+    color: #686868;
+    line-height: 1em;
+}
+
+/* Checkbox & Radio Style
+=========================*/
+label.checkbox-wrap,
+label.radio-wrap {
+    position: relative;
+    cursor: pointer;
+    padding: 5px 15px 6px 23px;
+    display: block;
+    font-size: 1em;
+}
+label.checkbox-wrap:before { content: '\f096';font-size: 1.50em;}
+label.radio-wrap:before {content: '\f1db'; font-size: 1.50em;}
+label.checkbox-wrap:before, label.checkbox-wrap:after,
+label.radio-wrap:before, label.radio-wrap:after{
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+}
+label.checkbox-wrap:after { content: '\f00c';top: 3px;left: 1px;}
+label.radio-wrap:after { content: '\f111';top: 4px; left: 3px ;}
+label.checkbox-wrap:after,
+label.radio-wrap:after {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0.5;
+    color: #008bc0;
+    -webkit-transition: all 0.50s;
+    -moz-transition: all 0.50s;
+    -o-transition: all 0.50s;
+    transition: all 0.50s;
+}
+
+input[type="checkbox"]:checked + label::after,
+input[type="radio"]:checked + label::after {
+    margin-right: 90px;
+    max-width: 25px;
+    opacity: 1;
+    width: 25px;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label,
+input[type="radio"]:checked + label::before {
+    color: #008bc0;
+}
+
+/* Select Style
+=============================*/
+select {
+    width: 100%;
+    padding: 2px 35px 3px 5px;
+    border: 2px solid #ebebeb;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff url("../img/select--arrow.png") no-repeat 99% 5px;
+}
+select:hover {cursor: pointer;}
+@media screen and (min-width:0\0) {
+    select {
+        background:none;
+        padding: 5px;
+    }
+}
+/**
+* 08 - UI ELEMENTS
+* Page Element styling.
+*/
+
+/* Buttons */
+.btn {
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 10px 6px;
+    text-decoration: none;
+    border:none !important;
+}
+.btn--block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn--confirm {
+    background: #008bc0;
+}
+.btn--confirm:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+.btn--confirm:active {
+    background: #008bb4;
+}
+
+.btn--success {
+    background: #27ae60;
+}
+.btn--success:hover {
+    background: #68db21;
+    background-image: -webkit-linear-gradient(top, #68db21, #60c724);
+    background-image: -moz-linear-gradient(top, #68db21, #60c724);
+    background-image: -ms-linear-gradient(top, #68db21, #60c724);
+    background-image: -o-linear-gradient(top, #68db21, #60c724);
+    background-image: linear-gradient(to bottom, #68db21, #60c724);
+}
+.btn--success:active {
+    background: #27ae50;
+}
+
+.btn--danger {
+    background: #e74c3c;
+}
+.btn--danger:hover {
+    background: #f56c5f;
+    background-image: -webkit-linear-gradient(top, #f56c5f, #e74d3c);
+    background-image: -moz-linear-gradient(top, #f56c5f, #e74d3c);
+    background-image: -ms-linear-gradient(top, #f56c5f, #e74d3c);
+    background-image: -o-linear-gradient(top, #f56c5f, #e74d3c);
+    background-image: linear-gradient(to bottom, #f56c5f, #e74d3c);
+    text-decoration: none;
+}
+.btn--danger:active {
+    background: #e74c2d;
+}
+
+/* Tab Panel */
+.tabs-wrapper {
+    font-family: arial, sans-serif;
+}
+.tabs-wrapper .tabs {
+    width: 100%;
+    overflow: hidden;
+    height: 28px;
+    line-height: 36px;
+}
+.tabs-wrapper .tabs .tab {
+    float: left;
+    color: #777777;
+    height: 28px;
+    margin: 0;
+    padding: 0 8px;
+    cursor: pointer;
+    background: #ecf0f1;
+    font-family:"Turkcell Satura",sans-serif;
+}
+.tabs-wrapper .tabs .tab.active {
+    color: #008bc0;
+    background: #ecf0f1;
+    font-weight: 900;
+    font-size: 1em;
+    line-height: 2.0em;
+}
+.tabs-wrapper .tab-panels {
+    border: 3px solid #dbdbdb;
+}
+.tabs-wrapper .tab-panels .tab-panel {
+    padding: 20px 10px;
+    display: none;
+}
+.tabs-wrapper .tab-panels .tab-panel:first-child {
+    display: block;
+}
+
+/**
+* 09 - PAGE SPECIFIC STYLES
+* Page Element styling.
+*/
+
+/* Header */
+header {
+    border-bottom: 1px solid #d4d8d9;
+    padding: 30px 0 0 0;
+}
+.logo {
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: transparent url("../img/sprites.png") no-repeat 0 0;
+    width: 131px;
+    height: 40px;
+    float: left;
+}
+header nav {
+    background: #ecf0f1;
+    margin-top: 15px;
+}
+header nav li {float: left; display: block;}
+header nav a {
+    color: #008bc0;
+    display: block;
+    font-family:"Turkcell Satura",sans-serif;
+    font-size:1rem;
+    font-weight: 900;
+    padding: 6px 12px;
+    transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
+}
+header nav a:hover {
+    background-color: #008bc0;
+    color: #fff;
+}
+
+/* SideBar */
+.sidebar-nav{
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-box-shadow:1px 1px 10px rgba(0,0,0,.1);
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-box-shadow:1px 1px 10px rgba(0,0,0,.1);
+    background:#fff;
+    border-bottom-left-radius:5px;
+    border-top-left-radius:5px;
+    box-shadow:1px 1px 10px rgba(0,0,0,.1);
+    list-style:none;margin:auto;
+    overflow:hidden;
+    padding:0;
+    position:relative;width:100%;}
+.sidebar-nav a{
+    -moz-transition:all .2s linear;
+    -o-transition:all .2s linear;
+    -webkit-transition:all .2s linear;
+    background:#fff;
+    color:#686868;
+    display:block;
+    font-family:'Turkcell Satura',sans-serif;
+    font-size:0.8rem;
+    font-weight:900;
+    height:50px;
+    line-height:50px;
+    overflow:hidden;
+    padding-left:1.1rem;
+    position:relative;
+    text-decoration:none;
+    text-transform:uppercase;
+    transition:all .2s linear;
+    width:100%;}
+.sidebar-nav a:hover{-moz-border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;background:#efefef;border-radius:5px 5px 0 0;}
+.sidebar-nav li:first-child a{border-left:5px solid #2ecc71;border-top-right-radius:0!important;}
+.sidebar-nav li:nth-child(2) a{border-left:5px solid #f39c12;}
+.sidebar-nav li:nth-child(3) a{border-left:5px solid #e74c3c;}
+.sidebar-nav li:nth-child(4) a{border-left:5px solid #bdc3c7;}
+.sidebar-nav li:nth-child(2) a,.sidebar-nav li:nth-child(3) a,.sidebar-nav li:nth-child(4) a{border-top-left-radius:0!important;border-top-right-radius:0!important;}
+.sidebar-nav li.selected a{background:#efefef;}
+
+/* Form Section*/
+#form-section {
+    min-height: 100%;
+}
+
+/* Footer */
+footer {
+    background: #008bc0;
+    color: #fff;
+    height: 30px;
+    padding: 4px 0;
+}
+footer p,
+footer small {color:#fff;padding: 0;margin:0;}

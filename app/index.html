@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ecma Script 6 To Do App with Gulp, Sass, Babel and Browserify - Erdal SATIK</title>
+    <meta name="description" content="Ecma Script 6 To Do App with Gulp, Sass, Babel and Browserify - Erdal SATIK">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--build:css css/main.min.css-->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <!--endbuild-->
+</head>
+<body class="wrap">
+
+<section id="form-section">
+    <div class="page--wrap">
+
+        <div id="todo-container">
+            <h4>Yeni Yapılacak Ekle</h4>
+            <div class="clearfix">
+                <div class="col-div-10">
+                    <label for="todo-text"></label>
+                    <input type="text" data-status id="todo-text" name="todo-text"/>
+                </div>
+                <div class="col-div-2">
+                    <button id="save" disabled class="btn btn--success btn--block">
+                        EKLE
+                    </button>
+                </div>
+            </div>
+
+            <!-- to do öğelerinin listeleneceği alan  -->
+            <div id="todo-list">
+                <h4>Yapılacaklar Listesi</h4>
+            </div>
+            <!-- yapılan to do öğelerinin listeleneceği alan  -->
+            <div id="todo-done-list">
+                <h4>Yapılanlar</h4>
+            </div>
+        </div>
+
+    </div>
+</section>
+<footer>
+    <div class="page--wrap">
+        <p>
+            <small>EEcma Script 6 To Do App with Gulp, Sass, Babel and Browserify - Erdal SATIK</small>
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
